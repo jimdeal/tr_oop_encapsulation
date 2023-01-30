@@ -7,10 +7,10 @@ public class Student {
 
         private static final Grade[] vals = values();
 
-        public Grade getNext() {
+        public Grade getPrevious() {
             return vals[(this.ordinal() + 1) % vals.length];
         }
-        public Grade getPrevious() {
+        public Grade getNext() {
             return vals[(this.ordinal() - 1) % vals.length];
         }
     }
@@ -59,13 +59,13 @@ public class Student {
     }
     public void upGradeStudentGrade() {
         if(this.grade != Grade.A){
-            Grade nextGrade =  grade.getPrevious();
+            Grade nextGrade =  grade.getNext();
             this.grade = nextGrade;
         }
     }
     public void downGradeStudentGrade(){
         if(this.grade != Grade.F){
-            Grade previousGrade =  grade.getNext();
+            Grade previousGrade =  grade.getPrevious();
             this.grade = previousGrade;
         }
     }
